@@ -128,21 +128,14 @@ class FrameViewer(Gtk.Window):
                 h = pix.props.height
                 stride =  pix.props.rowstride
                 mode = "L"
-                #if pix.props.has_alpha == True:
-                #    mode = "RGBA"
                 im = Image.frombytes(mode, (w, h), data)
         
-                #im = Image.fromarray(pix)
                 dt_date = datetime.datetime.now()
                 time_stamp = dt_date.strftime("%d%m%Y%H%M%S%f")
 
-                print("In specified format:", time_stamp)
-                #im.save("stream_" + self.img_frame_count.str() + "_" + time_stamp + ".jpeg")
-                options = {}
-                #pixbuf = GdkPixbuf.Pixbuf.new_from_data(data, GdkPixbuf.Colorspace.RGB, True, 8, w, h, n*w, None, None)
+                #print("In specified format:", time_stamp)
                 file_to_stream = "stream_" + str(self.img_frame_count) + "_" + time_stamp + ".jpeg"
                 im.save(file_to_stream)
-                #pix.savev(file_to_stream, 'jpeg', "", "")
 
             GLib.idle_add(self._update_image, pix)
 
