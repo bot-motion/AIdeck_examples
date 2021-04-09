@@ -22,4 +22,4 @@ jobs:
 
     - name: build
 #     run: docker run --rm -v ${PWD}:/module bitcraze/builder ./tools/build/build PLATFORM=cf2 UNIT_TEST_STYLE=min
-      run: docker run --rm -v $PWD:/module --device /dev/ttyUSB0 simatai/espidf:3.3.1 /bin/bash -c "make clean; make menuconfig; make all;"
+      run: docker run --rm -v $PWD:/module simatai/espidf:3.3.1 /bin/bash -c "make clean; make menuconfig; make all;"
