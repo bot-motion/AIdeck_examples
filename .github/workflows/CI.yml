@@ -29,7 +29,27 @@ jobs:
         name: nina-firmware
         path: |
               NINA/firmware/build/*.bin
-              module/build/*.bin
               NINA/firmware/build/bootloader/bootloader.bin
               NINA/firmware/build/*.elf
               NINA/firmware/build/*.map
+              
+              
+  gap8:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: build
+      run: docker run --rm -v $PWD:/module/data/ simatai/gapsdk:3.8.1 /bin/bash -c "source /gap_sdk/configs/ai_deck.sh; cd /GAP8/test_functionalities/wifi_jpeg_streamer; make clean all;"
+    
+    - name: store-gap8-build
+      uses: actions/upload-artifact@v2
+      with:
+        name: gap8-firmware
+        path: GAP8/test_functionalities/wifi_jpeg_streamer/BUILD
+
+
