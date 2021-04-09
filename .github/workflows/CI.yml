@@ -44,7 +44,7 @@ jobs:
         submodules: true
 
     - name: build
-      run: docker run --rm -v $PWD:/module/data/ simatai/gapsdk:3.8.1 /bin/bash -c "source /gap_sdk/configs/ai_deck.sh; cd /GAP8/test_functionalities/wifi_jpeg_streamer; make clean all;"
+      run: docker run --rm -v $PWD:/module/data/ simatai/gapsdk:3.8.1 /bin/bash -c "source /gap_sdk/configs/ai_deck.sh; cd GAP8/test_functionalities/wifi_jpeg_streamer; make clean all;"
     
     - name: store-gap8-build
       uses: actions/upload-artifact@v2
