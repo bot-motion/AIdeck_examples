@@ -21,5 +21,14 @@ jobs:
         submodules: true
 
     - name: build
-#     run: docker run --rm -v ${PWD}:/module bitcraze/builder ./tools/build/build PLATFORM=cf2 UNIT_TEST_STYLE=min
       run: docker run --rm -v $PWD:/module simatai/espidf:3.3.1 /bin/bash -c "cd NINA/firmware; make clean; make all;"
+    
+    - name: store-nina-build
+      uses: actions/upload-artifact@v2
+      with:
+        name: nina-firmware
+        path: |
+              module/build/*.bin
+              module/build/bootloader/bootloader.bin
+              module/build/*.elf
+              module/build/*.map
