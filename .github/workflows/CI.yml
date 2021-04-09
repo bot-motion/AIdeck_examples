@@ -28,7 +28,7 @@ jobs:
       with:
         name: nina-firmware
         path: |
-              build/*.bin
-              build/bootloader/bootloader.bin
-              build/*.elf
-              build/*.map
+              /module/NINA/firmware/build/*.bin
+              /module/NINA/firmware/build/bootloader/bootloader.bin
+              /module/NINA/firmware/build/*.elf
+              /module/NINA/firmware/build/*.map
