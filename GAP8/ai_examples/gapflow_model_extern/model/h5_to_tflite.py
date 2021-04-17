@@ -11,6 +11,7 @@ import argparse
 
 import argcomplete
 from tensorflow import lite
+from tensorflow import keras
 
 
 def create_parser():
@@ -28,7 +29,10 @@ def main():
     argcomplete.autocomplete(parser)
     args = parser.parse_args()
 
-    converter = lite.TFLiteConverter.from_keras_model_file(args.h5_file)
+    model = keras.models.load_model(args.h5_file)
+
+    converter = lite.TFLiteConverter.from_keras_model(model)
+    
     converter.target_ops = [lite.OpsSet.TFLITE_BUILTINS,
                             lite.OpsSet.SELECT_TF_OPS]
     print("converting model")
