@@ -36,6 +36,16 @@
 #  Note that the demo firmware is continously streaming JPEG files so a single
 #  JPEG image is taken from the stream using the JPEG start-of-frame (0xFF 0xD8)
 #  and the end-of-frame (0xFF 0xD9).
+#
+#  In order to make this run, you need to install Gtk-bindings for python:
+#
+#   sudo apt install python3-gi gobject-introspection gir1.2-gtk-3.0 libgtk-3-dev
+#
+#   conda install -c conda-forge gtk3 pygobject
+#
+#
+
+
 
 import argparse
 import gi

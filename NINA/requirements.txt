@@ -1,5 +1,6 @@
 argparse
 pygobject
+gtk3
 threading
 time
 socket
