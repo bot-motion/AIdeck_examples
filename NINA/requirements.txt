@@ -1,0 +1,8 @@
+argparse
+pygobject
+threading
+time
+socket
+os 
+struct
+
